@@ -9,7 +9,7 @@
 - [Modular Arithmetic - 모듈러 산술](math/modular_arithmetic.md)
 
 ## 자료 구조
-- [Beginner-Linked List](data_structure/beginner/linked_list/introduction.md)
+- [Beginner-Linked List](https://github.com/daeseokyoun/prepare-competitive-coding/blob/master/data_structure/beginner/linked_list/introduction.md)
 - [Beginner-Stack](data_structure/beginner/stack.md)
 - [Beginner-Queue](data_structure/beginner/queue.md)
 - [Beginner-Binary Search Tree](data_structure/beginner/bst.md)
