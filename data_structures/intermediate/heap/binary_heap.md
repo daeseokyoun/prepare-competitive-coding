@@ -2,6 +2,9 @@
 ## 원본 링크
 - [GeeksForGeeks-binary heap](https://www.geeksforgeeks.org/binary-heap/)
 
+## 참고자료
+- [MinHeap & Heap Sort](https://yaboong.github.io/data-structures/2018/02/10/2_array-advanced-heap-and-heapsort/)
+
 ## 이진 힙의 속성
 - 이진 힙은 완전 이진 트리([complete binary tree](http://ehpub.co.kr/tag/완전이진트리/))이다.
   - 완전이진 트리는 노드를 삽입할 때 왼쪽부터 차례대로 추가하는 이진 트리
