@@ -47,3 +47,154 @@
 - insert() : 새로운 키 값을 삽입하는 것은 O(logN) 의 시간복잡도를 가진다. 만약 키값이 그 부모 노드의 키값보다 크다면, 아무것도 하지 않아도 된다. 반대의 경우라면, 순회하면서 힙 속성이 깨지는 부분을 수정해줘야 한다.
 - delete() : 키 값하나를 지우는 것도 O(logN)의 시간 복잡도를 가진다. 이 부분은 decreseKey() 를 호출하는데, 정수 최소값(Integer.MIN_VALUE)으로 수행하여 무조건 루트노드로 만든 다음에 extractMin() 을 호출하여 루트노드를 꺼내준다. 이렇게 해서 delete() 를 구현한다.
 - 아래는 기본 힙 수행의 구현이다.
+```java
+class MinHeap {
+    int [] heapArr;
+    int capacity;
+    int heapEnd;
+
+    MinHeap()
+    {
+        heapArr = new int [10];
+        capacity = 10;
+        heapEnd = 0;
+    }
+
+    MinHeap(int capacity)
+    {
+        this.capacity = capacity;
+        this.heapArr = new int [capacity];
+        heapEnd = 0;
+    }
+
+    int parent(int i)
+    {
+        return (i - 1) / 2;
+    }
+
+    int left(int i)
+    {
+        return (i * 2) + 1;
+    }
+
+    int right(int i)
+    {
+        return (i * 2) + 2;
+    }
+
+    int getMin()
+    {
+        return heapArr[0];
+    }
+
+    void swap(int i, int j)
+    {
+        int temp = heapArr[i];
+        heapArr[i] = heapArr[j];
+        heapArr[j] = temp;
+    }
+
+    void insertKey(int k)
+    {
+        if (heapEnd == capacity) {
+            System.out.println("Overflow:Could not insert key to heap");
+            return;
+        }
+
+        int i = heapEnd;
+        heapArr[heapEnd++] = k;
+
+        while (i > 0 && heapArr[parent(i)] > heapArr[i]) {
+            swap(parent(i), i);
+            i = parent(i);
+        }
+    }
+
+    void decreaseKey(int index, int newval)
+    {
+        heapArr[index] = newval;
+
+        while (index > 0 && heapArr[parent(index)] > heapArr[index]) {
+            swap(parent(index), index);
+            index = parent(index);
+        }
+    }
+
+    void heapify(int i)
+    {
+        /*
+         * Recursive way
+        int l = left(i);
+        int r = right(i);
+        int small = i;
+
+        if (l < heapEnd && heapArr[l] < heapArr[small])
+            small = l;
+        if (r < heapEnd && heapArr[r] < heapArr[small])
+            small = r;
+
+        if (small != i) {
+            swap(small, i);
+            heapify(small);
+        }
+        **************************/
+        /* Interative way */
+        while (left(i) < heapEnd) {
+            int l = left(i);
+            int r = right(i);
+
+            int small = i;
+
+            if (l < heapEnd && heapArr[l] < heapArr[small])
+                small = l;
+            if (r < heapEnd && heapArr[r] < heapArr[small])
+                small = r;
+
+            if (small != i) {
+                swap(small, i);
+                i = small;
+            }
+        }
+    }
+
+    void deleteKey(int i)
+    {
+        decreaseKey(i, Integer.MIN_VALUE);
+        extractMin();
+    }
+
+    int extractMin()
+    {
+        if (heapEnd <= 0)
+            return Integer.MIN_VALUE;
+        if (heapEnd == 1) {
+            heapEnd--;
+            return heapArr[0];
+        }
+
+        int root = heapArr[0];
+        heapArr[0] = heapArr[heapEnd - 1];
+        heapEnd--;
+
+        heapify(0);
+        return root;
+    }
+
+    public static void main(String [] args)
+    {
+        MinHeap minHeap = new MinHeap(10);
+        minHeap.insertKey(6);
+        minHeap.insertKey(10);
+        minHeap.insertKey(11);
+        System.out.println(minHeap.getMin());
+        minHeap.insertKey(5);
+        System.out.println(minHeap.getMin());
+        minHeap.decreaseKey(2, 4);
+        System.out.println(minHeap.getMin());
+        System.out.println("extrace min : " + minHeap.extractMin());
+        System.out.println(minHeap.getMin());
+        minHeap.deleteKey(0);
+        System.out.println(minHeap.getMin());
+    }
+}
+```
