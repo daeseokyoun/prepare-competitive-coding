@@ -32,6 +32,7 @@
 | Arr[(2*i)+2]    | 오른쪽 자식 노드|
 
 - 이렇게 생성된 배열의 인덱스의 순차적 접근은 이진 트리의 [Level Order 순회](http://bigbigdata.tistory.com/83)가 가능하다.
+
 ![level order traverse](https://www.geeksforgeeks.org/wp-content/uploads/binaryheap.png)
 
 ### 힙의 응요 사례
@@ -50,6 +51,7 @@
 - insert() : 새로운 키 값을 삽입하는 것은 O(logN) 의 시간복잡도를 가진다. 만약 키값이 그 부모 노드의 키값보다 크다면, 아무것도 하지 않아도 된다. 반대의 경우라면, 순회하면서 힙 속성이 깨지는 부분을 수정해줘야 한다.
 - delete() : 키 값하나를 지우는 것도 O(logN)의 시간 복잡도를 가진다. 이 부분은 decreseKey() 를 호출하는데, 정수 최소값(Integer.MIN_VALUE)으로 수행하여 무조건 루트노드로 만든 다음에 extractMin() 을 호출하여 루트노드를 꺼내준다. 이렇게 해서 delete() 를 구현한다.
 - 아래는 기본 힙 수행의 구현이다.
+
 ```java
 class MinHeap {
     int [] heapArr;
@@ -201,3 +203,20 @@ class MinHeap {
     }
 }
 ```
+
+## 하나의 힙을 생성하는 시간 복잡도의 고려
+### Reference
+[GeeksForGeeks - Time Complexity of building a heap](https://www.geeksforgeeks.org/time-complexity-of-building-a-heap/)
+
+### 설명
+- 입력 배열 A 를 heap 으로 구성하기 위한 알고리즘은 다음과 같다.
+```python
+BUILD-HEAP(A)
+    heapsize := size(A);
+    for i := floor(heapsize/2) downto 1
+        do HEAPIFY(A, i);
+    end for
+END
+```
+
+위의 알고리즘을 보면, 수행시간은 ![heap time complexity](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-ad1e0425bcffe637a86253c8fe18f69b_l3.svg) 이다. 각 HEAPIFY() 가 ![heapify time complexity](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-44bb8c9d3ee0919ae381f87c480882c1_l3.svg) 이고, BUILD-HEAP이 ![BUILD-HEAP](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-9567d404baff2c322642ed8e476ad1af_l3.svg) 만큼 수행이 되기 때문이다.
