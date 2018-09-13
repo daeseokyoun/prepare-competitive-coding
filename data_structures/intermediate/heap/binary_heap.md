@@ -219,4 +219,5 @@ BUILD-HEAP(A)
 END
 ```
 
-위의 알고리즘을 보면, 수행시간은 ![heap time complexity](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-ad1e0425bcffe637a86253c8fe18f69b_l3.svg) 이다. 각 HEAPIFY() 가 ![heapify time complexity](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-44bb8c9d3ee0919ae381f87c480882c1_l3.svg) 이고, BUILD-HEAP이 ![BUILD-HEAP](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-9567d404baff2c322642ed8e476ad1af_l3.svg) 만큼 수행이 되기 때문이다.
+위의 알고리즘을 보면, 수행시간은 ![heap time complexity](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-ad1e0425bcffe637a86253c8fe18f69b_l3.svg) 이다. 각 HEAPIFY() 가 ![heapify time complexity](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-44bb8c9d3ee0919ae381f87c480882c1_l3.svg) 이고, BUILD-HEAP이 ![BUILD-HEAP](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-9567d404baff2c322642ed8e476ad1af_l3.svg) 만큼 수행이 되기 때문이다. 여기서 점근 상한은 대체로 정확하지만 근접하지는 않을 것이다.
+우리는 여기서 Heapfipy() 의 실행시간은 트리의 높이 'h'(n 개의 node 가 있을 때, lg(n) 과 같다) 에 의존적이며 대부분의 서브 트리의 높이는 작다는 것을 관참함으로써 경계에 점근적으로 접근할 수 있다. 높이 'h' 는 트리를 따라 위로 올라갈 수록 증가한다. BUILD-HEAP() 의 라인 3번째에 루프가 있는데, 마지막 내부 노드의 인덱스에서 부터(height = 1) 루트(1) 노드 (height = lg(n))까지 진행한다. 그러므로, Heapify 는 각 노드 마다 다른 수행시간 O(h) 을 가진다. 힙을 구성하기 위한 시간 복잡도를 구하기 위해서는, 높이 h 인 노드의 개수를 반드시 알아야 한다. 
