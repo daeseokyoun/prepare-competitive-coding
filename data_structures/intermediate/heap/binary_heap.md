@@ -255,3 +255,4 @@ heapify 는 높이 0 ~ lg(n) 까지 호출이 되며 각 높이 h 의  ![n 의 �
 ### 시간복잡도 참고
 - [Youtube- heapify 시간복잡도 계산](https://www.youtube.com/watch?v=HI97KDV23Ig)
 - [heapify 시간복잡도 분석](http://www.cs.umd.edu/~meesh/351/mount/lectures/lect14-heapsort-analysis-part.pdf)
+- [geometric progression](https://en.wikipedia.org/wiki/Geometric_progression)
