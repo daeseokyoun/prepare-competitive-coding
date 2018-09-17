@@ -13,6 +13,7 @@
 - [Beginner-Stack](data_structure/beginner/stack.md)
 - [Beginner-Queue](data_structure/beginner/queue.md)
 - [Beginner-Binary Search Tree](data_structure/beginner/bst.md)
+- [Intermediate - Heap](https://github.com/daeseokyoun/prepare-competitive-coding/blob/master/data_structures/Intermediate/heap/binary_heap.md)
 
 ## 알고리즘
 - [Search - Linear Search](algorithms/search/linear_search.md)
