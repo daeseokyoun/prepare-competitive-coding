@@ -252,6 +252,15 @@ heapify 는 높이 0 ~ lg(n) 까지 호출이 되며 각 높이 h 의  ![n 의 �
 |x| < 0 때 성립되는,
 ![x<0 때, 공식](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-185c07cec4efa614ebfb52b4434fa6b5_l3.svg) 을 양쪽 미분을 하고, 다시 x 를 양쪽에 곱해주면, ![미분](https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-f533b28af7646ab9d7894fe78e24e68a_l3.svg) 가 되고 x = 1/2 를 넣으면 앞서 설명했던 공식이 된다. 오른쪽 공식에도 1/2 를 넣어 계산을 하게 되면 2의 값이 나오게 된다. 그렇다면, 실제 O(cn/2 * 2)가 되고 시간복잡도의 결론은 O(n)이 된다.
 
+## Heap 자료 구조의 응용
+ 힙 자료구조는 일반적으로 힙정렬(HeapSort) 를 가르치기 위해 사용된다. 힙정렬 알고리즘은 퀵정렬(QuickSort) 알고리즘이 더 좋은 연습이 되기에 강의에 잘 사용되지 않는다. 그럼에도 불구하고, 힙 지료구조는 자체는 엄청나게 많이 사용된다. 다음은 힙정렬 이외에 힙 자료구조가 사용되는 것들이다.
+
+ ### 우선 순위 큐(Priority Queue)
+ - insert(), delete(), extractmax(), decreaseKey() 의 수행을 O(logN) 시간에 지원이 가능하기에 이진 힙을 사용해서 효율적으로 우선순위 큐를 구현할 수 있다. 이항 힙(Binomial Heap)과 피보나치 힙(Fibonacci Heap) 은 이진 힙의 또 다른 변형이다. 이런 변형은 이진 힙에서 O(N) 시간에 수행되는 것을 O(logN) 시간에 Union 을 수행할 수 있다. 힙으로 구현된 우선 순위 큐는 그래프 알고리즘인 프림 알고리즘이나 다익스트라의 알고리즘에 사용된다.
+
+### 주문 통계(Order statistics)
+ - 힙 자료구조는 배열에서 k 번째 작은수(혹은 큰수)를 찾을 때 효율적으로 구현할 수 있다.
+
 ### 시간복잡도 참고
 - [Youtube- heapify 시간복잡도 계산](https://www.youtube.com/watch?v=HI97KDV23Ig)
 - [heapify 시간복잡도 분석](http://www.cs.umd.edu/~meesh/351/mount/lectures/lect14-heapsort-analysis-part.pdf)
